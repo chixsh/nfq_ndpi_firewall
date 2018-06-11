@@ -166,8 +166,8 @@ get_flow_info(struct ndpi_workflow *workflow, const struct ndpi_iphdr *iph,
 
 	struct flow_info *ret = *(struct flow_info**)search_res;
 	if(ret->src_ip == iph->saddr && 
-		ret->src_ip == iph->daddr && 
-		ret->dst_port == htons(sport) && 
+		ret->dst_ip == iph->daddr && 
+		ret->src_port == htons(sport) && 
 		ret->dst_port == htons(dport)) {
 	    *src = ret->src_id;
 	    *dst = ret->dst_id;
